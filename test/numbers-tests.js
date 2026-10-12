@@ -130,7 +130,7 @@ describe('core-js-numbers', () => {
   it.optional(
     'parseNumberFromString should return a number from the given string representation',
     () => {
-      assert.equal(tasks.parseNumberFromString('100'), 100);
+      assert.equal(tasks.parseNumberFromString('100'), 100, `actual is`);
       assert.equal(tasks.parseNumberFromString('37'), 37);
       assert.equal(tasks.parseNumberFromString('-525.5'), -525.5);
       assert.equal(
