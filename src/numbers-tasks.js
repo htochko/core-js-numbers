@@ -105,8 +105,20 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  // 2π
-  return Math.acos(Math.sqrt(x1 ** 2 + y1 ** 2) / Math.sqrt(x2 ** 2 + y2 ** 2));
+  const scalarLength = x1 * x2 + y1 * y2;
+
+  const magnitude1 = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const magnitude2 = Math.sqrt(x2 ** 2 + y2 ** 2);
+
+  if (magnitude1 === 0 || magnitude2 === 0) {
+    return 0;
+  }
+
+  const cosTheta = scalarLength / (magnitude1 * magnitude2);
+
+  const clampedCos = Math.max(-1, Math.min(1, cosTheta));
+
+  return Math.acos(clampedCos);
 }
 
 /**
