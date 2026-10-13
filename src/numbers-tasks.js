@@ -254,7 +254,7 @@ function toNumber(value, def) {
  *   0  => 0
  */
 function getCube(num) {
-  return 3 ** num;
+  return num ** 3;
 }
 
 /**
@@ -271,21 +271,23 @@ function getCube(num) {
  *   10 => 55
  */
 function getFibonacciNumber(n) {
-  const fibList = [];
-  if (n < 2) {
-    fibList.push(0);
-  } else {
-    let prev = 0;
-    let curr = 1;
-    fibList.push(prev, curr);
-    for (let i = 2; i < n; i += 1) {
-      const next = prev + curr;
-      prev = curr;
-      curr = next;
-      fibList.push(curr);
-    }
+  if (n <= 0) {
+    return 0;
   }
-  return fibList.reduce((partialSum, a) => partialSum + a, 0);
+  if (n === 1) {
+    return 1;
+  }
+
+  let prev = 0;
+  let curr = 1;
+
+  for (let i = 2; i <= n; i += 1) {
+    const next = prev + curr;
+    prev = curr;
+    curr = next;
+  }
+
+  return curr;
 }
 
 /**
@@ -319,8 +321,8 @@ function getSumToN(n) {
  *   5   => 5  // 5
  */
 function getSumOfDigits(num) {
-  const charDigits = num.toString().split();
-  return charDigits.reduce((a, b) => a + b, 0);
+  const charDigits = num.toString().split('');
+  return charDigits.reduce((a, b) => Number(a) + Number(b), 0);
 }
 
 /**
@@ -335,7 +337,7 @@ function getSumOfDigits(num) {
  *   15  => false
  */
 function isPowerOfTwo(num) {
-  return 2 ** num;
+  return Number.isInteger(Math.log2(num));
 }
 
 /**
@@ -364,7 +366,7 @@ function getSine(/* num */) {
  * 2, 2    => '10'
  */
 function numberToStringInBase(number, base) {
-  return Number.parseInt(number, base).toString();
+  return Number(number).toString(base);
 }
 
 /**
@@ -442,7 +444,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  return Number.isNumber(number);
+  return typeof value === 'number' && !Number.isNaN(number);
 }
 
 /**
