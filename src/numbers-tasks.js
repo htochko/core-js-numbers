@@ -350,8 +350,8 @@ function isPowerOfTwo(num) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -395,7 +395,7 @@ function toExponential(number, fractionDigits) {
  * 12.345, 1   => '12.3'
  */
 function toFixed(number, fractionDigits) {
-  number.toFixed(fractionDigits);
+  return Number(number).toFixed(fractionDigits);
 }
 
 /**
@@ -411,7 +411,7 @@ function toFixed(number, fractionDigits) {
  * 12.345, 4   => '12.35'
  */
 function toPrecision(number, precision) {
-  return Math.acoshround(number, precision);
+  return Number(number).toPrecision(precision);
 }
 
 /**
@@ -425,7 +425,7 @@ function toPrecision(number, precision) {
  * Number(-5)    => -5
  */
 function getNumberValue(number) {
-  return Number(number);
+  return Number(number).valueOf();
 }
 
 /**
@@ -444,7 +444,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  return typeof value === 'number' && !Number.isNaN(number);
+  return typeof number === 'number' && Number.isFinite(number);
 }
 
 /**
@@ -473,7 +473,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  return parseFloat(str);
+  return Number.parseFloat(str);
 }
 
 /**
@@ -491,7 +491,7 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  return parseInt(str, base);
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -520,7 +520,7 @@ function isSafeInteger(number) {
  * -5.1 => -6
  */
 function roundToSmallestInteger(number) {
-  return Math.fround(number);
+  return Math.floor(number);
 }
 
 /**
@@ -549,7 +549,7 @@ function roundToLargestInteger(number) {
  * -5.5 => -5
  */
 function roundToNearestInteger(number) {
-  return Math.ceil(number);
+  return Math.round(number);
 }
 
 /**
@@ -564,7 +564,7 @@ function roundToNearestInteger(number) {
  * -5.5 => -5
  */
 function getIntegerPartNumber(number) {
-  return Math.floor(number);
+  return Math.trunc(Number(number));
 }
 
 /**
@@ -626,7 +626,7 @@ function getRandomInteger(...args) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  return Math.sqrt(a * a + b * b);
+  return Math.hypot(Number(a), Number(b));
 }
 
 /**
@@ -646,7 +646,7 @@ function getCountOfOddNumbers(number) {
   const num = Math.abs(number);
   let result = 0;
 
-  for (let i = 0; i < num; i += 1) {
+  for (let i = 0; i <= num; i += 1) {
     if (i % 2 !== 0) {
       result += 1;
     }
