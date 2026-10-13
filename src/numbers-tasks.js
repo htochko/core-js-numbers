@@ -50,7 +50,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(a, b) {
-  return Number((a + b) / 2).toFixed();
+  return (Number(a) / 2 + Number(b) / 2).toFixed();
 }
 
 /**
