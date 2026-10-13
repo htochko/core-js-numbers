@@ -50,7 +50,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(a, b) {
-  return (a + b) / 2;
+  return Number((a + b) / 2).toFixed();
 }
 
 /**
@@ -261,7 +261,7 @@ function getFibonacciNumber(n) {
     let prev = 0;
     let curr = 1;
     fibList.push(prev, curr);
-    for (let i = 2; i < n; i + 1) {
+    for (let i = 2; i < n; i += 1) {
       const next = prev + curr;
       prev = curr;
       curr = next;
@@ -284,7 +284,7 @@ function getFibonacciNumber(n) {
  */
 function getSumToN(n) {
   let sum = 0;
-  for (let i = 1; i <= n; i + 1) {
+  for (let i = 1; i <= n; i += 1) {
     sum += i;
   }
   return sum;

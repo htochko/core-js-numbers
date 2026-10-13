@@ -223,7 +223,7 @@ describe('core-js-numbers', () => {
     );
     getCubeSuccess = true;
   });
-  /*
+
   it.optional(
     'getFibonacciNumber returns the Fibonacci number located at the index position',
     () => {
@@ -239,7 +239,7 @@ describe('core-js-numbers', () => {
       );
     }
   );
-  
+
   it.optional('getSumToN returns the sum of all numbers from 1 to n', () => {
     assert.equal(tasks.getSumToN(5), 15);
     assert.equal(tasks.getSumToN(10), 55);
@@ -250,7 +250,7 @@ describe('core-js-numbers', () => {
       'Be sure to remove comments from the final solution'
     );
   });
-*/
+
   it.optional(
     'getSumOfDigits returns the sum of the digits of a given number',
     () => {
